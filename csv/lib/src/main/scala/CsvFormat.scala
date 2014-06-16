@@ -1,0 +1,1 @@
+trait CsvFormat[A] extends (A => Seq[String])
