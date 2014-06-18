@@ -9,8 +9,8 @@ val commonSettings = Seq(
   scalacOptions ++= Seq("-deprecation", "-feature"),
   libraryDependencies ++= Seq(
     "org.scala-lang" % "scala-reflect" % scalaVersion.value,
-    "org.specs2" % "specs2_2.11.0-RC1" % "2.3.10" % "test",
-    "org.scala-lang" % "scala-parser-combinators" % "2.11.0-M4"
+    "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.1",
+    "org.specs2" %% "specs2" % "2.3.12" % "test"
   )
 )
 
