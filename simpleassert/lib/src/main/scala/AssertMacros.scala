@@ -20,11 +20,18 @@ object AssertMacros {
       // We use quasiquotes to match on the type of expression in which we are interested:
 
       case q"$a == $b" =>
+        // We ask scalac to generate fresh names to avoid potential naming conflicts:
+        //
+        // See the following (step 10 onwards) for a discussion of name generation:
+        //     https://github.com/scalamacros/macrology201
+        val temp1 = c.freshName(TermName("temp"))
+        val temp2 = c.freshName(TermName("temp"))
+
         q"""
-        val temp1 = $a
-        val temp2 = $b
-        if(temp1 != temp2) {
-          throw new AssertionError(temp1 + " != " + temp2)
+        val $temp1 = $a
+        val $temp2 = $b
+        if($temp1 != $temp2) {
+          throw new AssertionError($temp1 + " != " + $temp2)
         }
         """
 

@@ -67,8 +67,11 @@ class AssertMacros(val c: Context) {
   //
   //    Example: `temp1.b(temp2, temp3, temp4)`
   case class TempVar(original: c.Tree, transformed: c.Tree) {
-    // The name of the temporary variable:
-    val name  = TermName(c.freshName("temp"))
+    // The name of the temporary variable.
+    //
+    // See the following (step 10 onwards) for a discussion of name generation:
+    //     https://github.com/scalamacros/macrology201
+    val name  = c.freshName(TermName("temp"))
 
     // An expression that references this variable,
     // used below to create the `transformed` form of
