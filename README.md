@@ -10,9 +10,11 @@ as well as for the author's talk, [Macros for the Rest of Us], presented at [Sca
 Licensed under the Apache License v2.0
 http://www.apache.org/licenses/LICENSE-2.0.html
 
-[Underscore Essential Macros](http://underscore.io/courses/essential-macros.html)
-[Macros for the Rest of Us](http://www.scaladays.org/#schedule/Macros-for-the-Rest-of-Us)
-[ScalaDays 2014](http://scaladays.org)
+[Essential Scala Macros]: http://underscore.io/courses/essential-macros.html
+[Macros for the Rest of Us]: http://www.scaladays.org/#schedule/Macros-for-the-Rest-of-Us
+[ScalaDays 2014]: http://scaladays.org
+
+**If you're interested in this content, sign up to our mailing list at [http://underscore.io](http://underscore.io/newsletter.html) where we post updates and code samples about Scala, Scala Macros, and functional programming in general.**
 
 The Examples
 ------------
