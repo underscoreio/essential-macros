@@ -1,5 +1,5 @@
-Scala Macro Examples
-====================
+Essential Macros Code Examples
+==============================
 
 Copyright 2014 Dave Gurnell of Underscore
 http://underscore.io
