@@ -70,7 +70,11 @@ class AssertMacros(val c: Context) {
     // The name of the temporary variable.
     //
     // See the following (step 10 onwards) for a discussion of name generation:
-    //     https://github.com/scalamacros/macrology201
+    //     https://github.com/scalamacros/macrology201/commits/part1
+    //
+    // Note that this will fail for certain exotic types of arguments
+    // due to an owner chain corruption issue. See steps 19 to 23 above
+    // for a detailed explanation and workaround.
     val name  = c.freshName(TermName("temp"))
 
     // An expression that references this variable,
