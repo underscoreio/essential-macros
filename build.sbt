@@ -42,6 +42,10 @@ lazy val orderingsLib    = project.in(file("orderings/lib")).settings(commonSett
 
 lazy val orderings       = project.in(file("orderings/app")).settings(commonSettings : _*).dependsOn(orderingsLib)
 
+lazy val enumerationsLib    = project.in(file("enumerations/lib")).settings(commonSettings : _*)
+
+lazy val enumerations    = project.in(file("enumerations/app")).settings(commonSettings : _*).dependsOn(enumerationsLib)
+
 lazy val whiteboxLib     = project.in(file("whitebox/lib")).settings(commonSettings : _*)
 
 lazy val whitebox        = project.in(file("whitebox/app")).settings(commonSettings : _*).dependsOn(whiteboxLib)

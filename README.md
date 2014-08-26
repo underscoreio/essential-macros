@@ -47,6 +47,9 @@ Each example is split into two projects, `app` and `lib`. `lib` defines the macr
  - **orderings** - Code generation macro that inspects a type and creates an object allowing
    sorting by any of its fields. This technique is useful when writing, for example, a web
    service that allows users to sort a database by any field in the returned data.
+   
+ - **enumerations** - Generating the set of instances of a sealed trait. Useful for 
+   rolling your own enumerations via sealed case objects.  
 
  - **whitebox** - Simple project demonstrating the fundamental difference between whitebox
    and blackbox macros. See comments in the main application file for details.
