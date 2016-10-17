@@ -79,7 +79,7 @@ class AssertMacros(val c: Context) {
 
     // An expression that references this variable,
     // used below to create the `transformed` form of
-    // parent expresions:
+    // parent expressions:
     val ident = q"$name"
 
     // An statement that declares this variable:

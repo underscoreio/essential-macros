@@ -151,11 +151,11 @@ class PrintTypeMacros(val c: Context) {
       if(decl.isStatic)                 keywords = keywords :+ "isStatic"
       if(decl.isSynthetic)              keywords = keywords :+ "isSynthetic"
       if(decl.isModuleClass)            keywords = keywords :+ "isModuleClass"
-      if(!decl.alternatives.isEmpty)    keywords = keywords :+ "alternatives = " + decl.alternatives
-      if(!decl.annotations.isEmpty)     keywords = keywords :+ "annotations = " + decl.annotations
+      if(decl.alternatives.nonEmpty)    keywords = keywords :+ "alternatives = " + decl.alternatives
+      if(decl.annotations.nonEmpty)     keywords = keywords :+ "annotations = " + decl.annotations
       if(true)                          keywords = keywords :+ "fullName = " + decl.fullName
       if(true)                          keywords = keywords :+ "info = " + decl.info.toString.replaceAll("\n *", " ")
-      if(!decl.overrides.isEmpty)       keywords = keywords :+ "overrides = " + decl.overrides
+      if(decl.overrides.nonEmpty)       keywords = keywords :+ "overrides = " + decl.overrides
       if(true)                          keywords = keywords :+ "owner = " + decl.owner
       if(decl.companion != NoSymbol)    keywords = keywords :+ "companion = " + decl.companion
       if(true)                          keywords = keywords :+ "typeSignature = " + decl.typeSignature.toString.replaceAll("\n *", " ")
@@ -174,7 +174,7 @@ class PrintTypeMacros(val c: Context) {
       if(tipe.isExistential)       keywords = keywords :+ "isExistential"
       if(true)                     keywords = keywords :+ "toType = " + tipe.toType
       if(true)                     keywords = keywords :+ "toTypeConstructor = " + tipe.toTypeConstructor
-      if(!tipe.typeParams.isEmpty) keywords = keywords :+ "typeParams = " + tipe.typeParams
+      if(tipe.typeParams.nonEmpty) keywords = keywords :+ "typeParams = " + tipe.typeParams
       write(prefix + "  asType")
       keywords.foreach(kw => write(prefix + "    " + kw))
     }
@@ -216,11 +216,11 @@ class PrintTypeMacros(val c: Context) {
       if(clss.isPrimitive)                     keywords = keywords :+ "isPrimitive"
       if(clss.isSealed)                        keywords = keywords :+ "isSealed"
       if(clss.isTrait)                         keywords = keywords :+ "isTrait"
-      if(!clss.baseClasses.isEmpty)            keywords = keywords :+ "baseClasses = " + clss.baseClasses
-      if(!clss.knownDirectSubclasses.isEmpty)  keywords = keywords :+ "knownDirectSubclasses = " + clss.knownDirectSubclasses
+      if(clss.baseClasses.nonEmpty)            keywords = keywords :+ "baseClasses = " + clss.baseClasses
+      if(clss.knownDirectSubclasses.nonEmpty)  keywords = keywords :+ "knownDirectSubclasses = " + clss.knownDirectSubclasses
       if(clss.module != NoSymbol)              keywords = keywords :+ "module = " + clss.module
       if(clss.primaryConstructor != NoSymbol)  keywords = keywords :+ "primaryConstructor = " + clss.primaryConstructor
-      if(!clss.typeParams.isEmpty)             keywords = keywords :+ "typeParams = " + clss.typeParams
+      if(clss.typeParams.nonEmpty)             keywords = keywords :+ "typeParams = " + clss.typeParams
       if(clss.selfType != clss.toType)         keywords = keywords :+ "selfType = " + clss.selfType
       write(prefix + "  asClass")
       keywords.foreach(kw => write(prefix + "    " + kw))
@@ -234,10 +234,10 @@ class PrintTypeMacros(val c: Context) {
       if(meth.isConstructor)            keywords = keywords :+ "isConstructor"
       if(meth.isPrimaryConstructor)     keywords = keywords :+ "isPrimaryConstructor"
       if(meth.isVarargs)                keywords = keywords :+ "isVarargs"
-      if(!meth.exceptions.isEmpty)      keywords = keywords :+ "exceptions = " + meth.exceptions
-      if(!meth.paramLists.isEmpty)      keywords = keywords :+ "paramLists = " + meth.paramLists
+      if(meth.exceptions.nonEmpty)      keywords = keywords :+ "exceptions = " + meth.exceptions
+      if(meth.paramLists.nonEmpty)      keywords = keywords :+ "paramLists = " + meth.paramLists
       if(true)                          keywords = keywords :+ "returnType = " + meth.returnType
-      if(!meth.typeParams.isEmpty)      keywords = keywords :+ "typeParams = " + meth.typeParams
+      if(meth.typeParams.nonEmpty)      keywords = keywords :+ "typeParams = " + meth.typeParams
       write(prefix + "  asMethod")
       keywords.foreach(kw => write(prefix + "    " + kw))
     }

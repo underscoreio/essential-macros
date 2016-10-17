@@ -15,7 +15,7 @@ class ValidatorMacros(val c: Context) {
         c.abort(c.enclosingPosition, errorMessage(s"Argument is not an accessor function literal."))
     }
 
-    q"${c.prefix}.field(${name.toString}, _.${name})($inner)"
+    q"${c.prefix}.field(${name.toString}, $accessor)($inner)"
   }
 
   def errorMessage(prefix: String) =
