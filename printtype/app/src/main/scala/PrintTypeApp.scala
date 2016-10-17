@@ -1,4 +1,4 @@
-case class Person(val name: String, var age: Int)
+case class Person(name: String, var age: Int)
 
 object PrintTypeApp extends App {
   import PrintType._
@@ -29,6 +29,7 @@ object PrintTypeApp extends App {
   println("3. Person ====================")
 
   printSymbol(Person)
+  printSymbol[Person]
 
   // Print information about an unknown type:
 

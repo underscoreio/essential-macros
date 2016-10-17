@@ -18,7 +18,7 @@ case class ValidationResult(message: String, path: Seq[String] = Seq.empty, leve
 object ValidationResult {
   sealed trait Level { def id: String ; def toInt: Int }
   object Level {
-    final case object Error   extends Level { val id = "error"   ; val toInt = 0 }
-    final case object Warning extends Level { val id = "warning" ; val toInt = 1 }
+    case object Error   extends Level { val id = "error"   ; val toInt = 0 }
+    case object Warning extends Level { val id = "warning" ; val toInt = 1 }
   }
 }

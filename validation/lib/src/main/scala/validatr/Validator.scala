@@ -12,15 +12,15 @@ trait Validator[A] {
 
   def apply(data: A): Seq[ValidationResult]
 
-  def prefix(str: String) = Validator { data: A =>
+  def prefix(str: String) = Validator[A] { data: A =>
     this(data) map (_ prefix str)
   }
 
-  def contramap[B](func: B => A) = Validator { data: B =>
+  def contramap[B](func: B => A) = Validator[B] { data: B =>
     this(func(data))
   }
 
-  def and(that: Validator[A]) = Validator { data: A =>
+  def and(that: Validator[A]) = Validator[A] { data: A =>
     this(data) ++ that(data)
   }
 
@@ -37,7 +37,7 @@ trait Validator[A] {
 object Validator {
   import scala.language.implicitConversions
 
-  implicit def apply[A](func: A => Seq[ValidationResult]) = new Validator[A] {
+  implicit def apply[A](func: A => Seq[ValidationResult]): Validator[A] = new Validator[A] {
     def apply(data: A) =
       func(data)
   }
